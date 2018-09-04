@@ -11,10 +11,11 @@
 
   <body>
      <%= render 'shared/navbar' if current_user %>
-     <p class="notice"><%= flash[:notice] %></p>
-     <p class="alert"><%= flash[:alert] %></p>
 
+    <div class="container">
     <%= yield %>
+    </div>
+
     <%= render 'shared/footer' %>
 
     <% if flash.any? %>
