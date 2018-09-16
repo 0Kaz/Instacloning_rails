@@ -9,6 +9,7 @@ gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'toastr-rails'
+
 gem 'omniauth', '~> 1.6'
 gem 'omniauth-twitter'
 gem 'carrierwave', '~>1.0'
