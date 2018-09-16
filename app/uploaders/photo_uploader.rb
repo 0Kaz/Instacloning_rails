@@ -5,25 +5,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
 
-   storage :file
+  storage :file
 
 
-  class PictureUploader < CarrierWave::Uploader::Base
 
-  include Cloudinary::CarrierWave
-
-  process :convert => 'png'
-  process :tags => ['post_picture']
-
-  version :standard do
-    process :resize_to_fill => [100, 150, :north]
-  end
-
-  version :thumbnail do
-    resize_to_fit(100, 100)
-  end
-
-end
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -32,6 +17,18 @@ end
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  include Cloudinary::CarrierWave
+
+  process :convert => 'png'
+  process :tags => ['post_picture']
+
+  version :standard do
+    process :resize_to_fill => [300, 300, :north]
+  end
+
+  version :thumbnail do
+    resize_to_fit(100, 100)
+  end
 
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
