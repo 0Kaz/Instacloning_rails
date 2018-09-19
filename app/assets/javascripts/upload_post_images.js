@@ -1,6 +1,6 @@
 Dropzone.autoDiscover = false;
 
-$(document).ready(function() {
+$(document).ready(function(){
   $(".upload-images").dropzone({
     addRemoveLinks: true,
     maxFilesize: 1,
@@ -13,7 +13,6 @@ $(document).ready(function() {
     clickable: ".upload-photos-icon",
     thumbnailWidth: 100,
     thumbnailHeight: 100,
-
 
     init: function(){
       var myDropzone = this;
@@ -34,3 +33,8 @@ $(document).ready(function() {
     }
   })
 });
+
+
+$(document).ready(function(){
+  console.log("it is working");
+})
