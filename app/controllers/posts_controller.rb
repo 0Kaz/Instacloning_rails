@@ -2,7 +2,7 @@ require 'pry-byebug'
 
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_post, only: [:show]
+  before_action :find_post, only: [:show, :destroy]
 
   def index
     @posts = Post.all.limit(10).includes(:photos, :user).order('created_at desc')
@@ -29,6 +29,20 @@ class PostsController < ApplicationController
   def show
      @photos = @post.photos
   end
+
+  def destroy
+    if @post.user == current_user
+      if @post.destroy
+        flash[:notice] = "Post deleted!"
+      else
+        flash[:alert] = "Something went wrong ... "
+      end
+    else
+      flash[:notice] = " You don't have the permission to do that."
+    end
+    redirect_to root_path
+  end
+
 
   private
 
