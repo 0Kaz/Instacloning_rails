@@ -32,5 +32,27 @@
     <div id="posts">
       <%= render 'post_list' %>
     </div>
- </div>
+
+    <div class="card-body">
+      <div class="row actions">
+        <a href="core-sprite love hide-text" class="">Love</a>
+         <a href="core-sprite love hide-text" class="">Comment</a>
+          <a href="core-sprite love hide-text ml-auto" class="">Bookmark</a>
+      </div>
+      <div><strong><%= pluralize(16,"like") %></strong></div>
+      <div>
+        <span><strong><%= post.user.name %></strong></span>
+        <span><%= post.content %></span>
+      </div>
+      <div class="light-color post-time"> <%= time_ago_in_words(post.created_at).upcase %> AGO</div>
+      <hr>
+      <div class="row actions">
+        <form action="#" class="w-100">
+          <div>
+            <textarea name="form-control comment-input border-0" placeholder ="Add a comment ..." rows="1"></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
