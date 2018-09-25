@@ -14,7 +14,7 @@
       <% end %>
     </div>
 
-    <% if @post.photos.size == 1 %>
+        <% if @post.photos.size == 1 %>
           <%= image_tag @post.photos.first.image.url(:standard), class: "card-img-top" %>
         <% else %>
           <div class="carousel slide" data-ride="carousel" id="carousel-post-<%= @post.id %>">
@@ -40,6 +40,26 @@
           </div>
         <% end %>
 
-    </div>
-   </div>
-<% end %>
+      <div class="card-body">
+        <div class="row actions">
+          <a href="#" class="core-sprite love hide-text">Love</a>
+          <a href="#" class="core-sprite comment hide-text">Comment</a>
+          <a href="#" class="core-sprite bookmark hide-text ml-auto">Bookmark</a>
+        </div>
+        <div><strong><%= pluralize(16,"like") %></strong></div>
+        <div>
+          <span><strong><%= post.user.name %></strong></span>
+          <span><%=  post.content %></span>
+        </div>
+        <div class="light-color post-time"> <%= time_ago_in_words(post.created_at).upcase %> AGO</div>
+        <hr>
+        <div class="row actions">
+          <form action="#" class="w-100">
+            <div>
+              <textarea name="form-control comment-input border-0" placeholder ="Add a comment ..." rows="1"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+  <% end %>
