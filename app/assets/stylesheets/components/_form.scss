@@ -140,6 +140,7 @@ footer .nav-item {
 
 
 .post {
+
   .card-header{
     background-color: white;
   }
@@ -209,12 +210,22 @@ footer .nav-item {
 }
 
 
-.comment-list {
+.commented-list {
   height: 310px;
   overflow: auto;
 }
 
-.post-show-img{
+.post-show-img {
   background-color: #fafafa;
   margin: -10px 0;
+}
+
+
+.delete-post-icon {
+  color: #262626;
+  font-size: 20px;
+}
+
+.card-img-top {
+  margin:0;
 }

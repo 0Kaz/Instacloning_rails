@@ -3,7 +3,7 @@
     <div class="col-lg-8 col-md-7 px-0 d-flex post-show-img">
       <div class="align-self-center">
         <% if @post.photos.size == 1 %>
-          <%= image_tag @post.photos.first.image.url(:standard), class: "card-img-top" %>
+          <%= image_tag @post.photos.first.image.url(:standard), class: "card-img-top mt-0 d-flex align-items-center position-relative", style: "top:0px;" %>
         <% else %>
           <div class="carousel slide" data-ride="carousel" id="carousel-post-<%= @post.id %>">
             <div class="carousel-inner">
@@ -27,9 +27,9 @@
             </a>
           </div>
         <% end %>
-
       </div>
     </div>
+
     <div class="col-lg-4 col-md-5 mt-sm-4 mt-md-0">
       <div class="row px-3 d-flex align-items-center">
         <%= link_to user_path(@post.user), class: "no-text-decoration" do %>
@@ -38,44 +38,46 @@
         <%= link_to user_path(@post.user), class: "normal-color no-text-decoration d-flex align-self-center", title: @post.user.name do %>
           <strong><%= @post.user.name %></strong>
         <% end %>
+        <%= link_to post_path(@post), method: :delete, class: "ml-auto delete-post-icon mx-0 my-auto" do %>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        <% end %>
       </div>
       <hr class="mb-0">
-      <div class="comment-list py-2">
+        <div class= "commented-list py-2">
         <% if @post.content.present? %>
           <span><strong><%= @post.user.name %></strong></span>
           <span><%= @post.content %></span>
-      </div>
-
+        </div>
         <% end %>
 
         <% 100.times do  %>
-          <div>
+        <div>
           <span><strong>Hey there !</strong></span>
           <span>No helmets ? Lol </span>
         </div>
         <% end %>
         </div>
         <hr class="mt-0">
-          <div class="card-body">
-            <div class="row actions">
-              <a href="#" class="core-sprite love hide-text" >Love</a>
-               <a href="#" class="core-sprite bookmark hide-text" >Comment</a>
-                <a href="#" class="core-sprite bookmark hide-text ml-auto" >Bookmark</a>
-            </div>
-            <div><strong><%= pluralize(16,"like") %></strong></div>
-            <div>
-              <span><strong><%= @post.user.name %></strong></span>
-              <span><%= @post.content %></span>
-            </div>
-            <div class="light-color post-time"> <%= time_ago_in_words(@post.created_at).upcase %> AGO</div>
-            <hr>
-            <div class="row actions">
-              <form action="#" class="w-100">
-                <div>
-                  <textarea class="form-control comment comment-input border-0" placeholder ="Add a comment ..." rows="1"></textarea>
-                </div>
-              </form>
-            </div>
-          </div>
+
+        <div class="row actions">
+          <a href="#" class="core-sprite love hide-text" >Love</a>
+          <a href="#" class="core-sprite bookmark hide-text" >Comment</a>
+          <a href="#" class="core-sprite bookmark hide-text ml-auto" >Bookmark</a>
         </div>
+        <div><strong><%= pluralize(16,"like") %></strong></div>
+        <div>
+          <span><strong><%= @post.user.name %></strong></span>
+          <span><%= @post.content %></span>
+        </div>
+        <div class="light-color post-time"> <%= time_ago_in_words(@post.created_at).upcase %> AGO</div>
+        <hr>
+        <div class="row actions">
+        <form action="#" class="w-100">
+        <div>
+          <textarea class="form-control comment-input border-0" placeholder ="Add a comment ..." rows="1"></textarea>
+        </div>
+        </form>
       </div>
+    </div>
+  </div>
+</div>
