@@ -42,31 +42,15 @@
 
       <div class="card-body">
         <div class="row actions">
-          <% if post.is_liked(current_user).present? %>
-            <%= link_to "Love", like_path(post.is_liked(current_user)), method: :delete, remote: true, class: "core-sprite loved hide-text" %>
-          <% else %>
-            <%= link_to "Loved", post_likes_path(post), method: :post, remote: true,
-             class: "core-sprite love hide-text" %>
-          <% end %>
+          <div id="like-icon-post-<%= post.id.to_s  %>">
+          <%= render "like_icon", {is_liked: post.is_liked(current_user), post: post } %>
+         </div>
+
           <a href="#" class="core-sprite comment hide-text">Comment</a>
           <a href="#" class="core-sprite bookmark hide-text ml-auto">Bookmark</a>
         </div>
-        <div><strong>
-          <% post.likes.each.with_index do |like, index| %>
-            <% if post.likes.size == 1 %>
-              <%= like.user.name %></strong> likes this
-            <% elsif like == post.likes.last %>
-              and<strong>
-              <%= + like.user.name %></strong> likes this
-            <% elsif index > 1  %>
-              <%= "and" + (post.likes.size-index).to_s + " others" %> like this
-              <% break %>
-            <% elsif index==post.likes.size-2 || index == 1 %>
-              <%= like.user.name %>
-            <% else %>
-              <%= like.user.name + ", " %>
-            <% end %>
-          <% end %>
+        <div id="like-text-post-<%=  post.id.to_s  %>">
+          <%= render "like_text", {likes: post.likes} %>
         </div>
         <div>
           <span><strong><%= post.user.name %></strong></span>
