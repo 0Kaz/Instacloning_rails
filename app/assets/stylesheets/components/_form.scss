@@ -181,14 +181,19 @@ footer .nav-item {
 
 .love {
   background-position: -325px -329px;
-  height: 23px;
+  height: 24px;
   width: 24px;
 }
 
 
+.loved {
+  @extend .love;
+  background-position: -182px -336px;
+}
+
 .comment {
   @extend .love;
-  background-position: -283px -176px;
+  background-position: -258px -175px;
   margin-left: 8px;
 }
 

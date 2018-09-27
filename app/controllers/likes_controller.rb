@@ -1,8 +1,9 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
+  before_action :like_params, only: [:create, :destroy]
 
   def create
-    @like = current_user.likes.build(like_params)
+    @like = current_user.likes.create(like_params)
     @post = like.post
     if @like.save
       respond_to :js
