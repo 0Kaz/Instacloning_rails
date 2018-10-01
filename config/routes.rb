@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'comments/index'
+  get 'comments/create'
+  get 'comments/destroy'
+  get 'comments/comment_params'
+  get 'index/create'
+  get 'index/destroy'
+  get 'index/comment_params'
   get 'likes/create'
   get 'likes/destroy'
   devise_for :users,
