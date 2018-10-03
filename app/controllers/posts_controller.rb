@@ -1,4 +1,3 @@
-require 'pry-byebug'
 
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :destroy]
@@ -27,38 +26,37 @@ class PostsController < ApplicationController
   end
 
   def show
-     @photos = @post.photos
-     @likes = @post.likes.includes(:user)
-     @comment = Comment.new
-     @is_liked = @post.is_liked(current_user)
+    @photos = @post.photos
+    @likes = @post.likes.includes(:user)
+    @comment = Comment.new
+    @is_liked = @post.is_liked(current_user)
   end
 
   def destroy
     if @post.user == current_user
-      if @post.delete
+      if @post.destroy
         flash[:notice] = "Post deleted!"
       else
-        flash[:alert] = "Something went wrong ... "
+        flash[:alert] = "Something went wrong ..."
       end
     else
-      flash[:notice] = " You don't have the permission to do that."
+      flash[:notice] = "You don't have permission to do that!"
     end
     redirect_to root_path
   end
 
-
   private
 
   def find_post
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by id: params[:id]
 
     return if @post
-    flash[:danger] = "Post not exist !"
+    flash[:danger] = "Post not exist!"
     redirect_to root_path
   end
-
 
   def post_params
     params.require(:post).permit(:content)
   end
+
 end
