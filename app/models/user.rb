@@ -28,7 +28,7 @@
 
  def self.search(term)
     if term
-      where('username LIKE ?', '%#{term}')
+      where('name LIKE ?', '%#{term}')
     else
       nil
     end
