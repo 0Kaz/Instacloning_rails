@@ -8,13 +8,6 @@
   margin: 0 0 10px;
 }
 
-.brand-name-img {
-  background-position: 0 0;
-  height: 51px;
-  width: 175px;
-}
-
-
 
 .landing-left {
   .dummy-phone{
@@ -176,35 +169,6 @@ footer .nav-item {
     opacity: 1;
     width: 30px;
   }
-}
-
-
-.love {
-  background-position: -325px -329px;
-  height: 24px;
-  width: 24px;
-}
-
-
-.loved {
-  @extend .love;
-  background-position: -200px -329px;
-}
-
-.comment {
-  @extend .love;
-  background-position: -258px -175px;
-  margin-left: 8px;
-}
-
-.bookmark {
-  @extend .love;
-  background-position: -150px -355px;
-}
-
-.bookmarked {
-  @extend .love;
-  background-position: -353px -273px;
 }
 
 .no-text-decoration:hover{
