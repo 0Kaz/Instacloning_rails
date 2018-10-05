@@ -14,10 +14,10 @@ gem 'dropzonejs-rails'
 gem 'omniauth', '~> 1.6'
 gem 'omniauth-twitter'
 gem 'carrierwave', '~>1.0'
-gem 'popper_js', '~> 1.14.3'
+
 gem 'cloudinary'
 gem 'popper_js', '~> 1.14.3'
-
+gem 'rename'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
