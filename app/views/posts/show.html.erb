@@ -21,15 +21,15 @@
       <hr class="mb-0">
         <div class= "commented-list py-2">
         <% if @post.content.present? %>
-          <span><strong><%= @post.user.name %></strong></span>
-          <span><%= @post.content %></span>
-        </div>
+          <div>
+            <span><strong><%= @post.user.name %></strong></span>
+            <span><%= @post.content %></span>
+          </div>
         <% end %>
 
-        <div id="comment-post-<%= @post.id.to_s %>">
-          <%= render "comment_list", {post: @post} %>
-        </div>
-
+          <div id="comment-post-<%= @post.id.to_s %>">
+            <%= render "comment_list", {post: @post} %>
+          </div>
         </div>
         <hr class="mt-0">
 
